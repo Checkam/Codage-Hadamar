@@ -48,17 +48,17 @@ int main(){
   int8_t * messageCoder2 = message2.coder(had,3);
   int8_t * messageCoder3 = message3.coder(had,5);
 
-  printf("\n\nCodage du message :");
+  printf("\n\n\033[32mCodage du message :\033[39m");
   message1.afficher();
-  afficher1(messageCoder1, "\n\nMessage Coder :");
+  afficher1(messageCoder1, "\n\n\033[32mMessage Coder :\033[39m");
 
-  printf("\n\nCodage du message :");
+  printf("\n\n\033[32mCodage du message :\033[39m");
   message2.afficher();
-  afficher1(messageCoder2, "\n\nMessage Coder :");
+  afficher1(messageCoder2, "\n\n\033[32mMessage Coder :\033[39m");
 
-  printf("\n\nCodage du message :");
+  printf("\n\n\033[32mCodage du message :\033[39m");
   message3.afficher();
-  afficher1(messageCoder3, "\n\nMessage Coder :");
+  afficher1(messageCoder3, "\n\n\033[32mMessage Coder :\033[39m");
 
   emeteur.etalage(messageCoder1);
   emeteur.etalage(messageCoder2);
@@ -66,7 +66,7 @@ int main(){
 
   emeteur.afficher();
 
-  printf("Decodage : \n\n");
+  printf("\033[32mDecodage : \033[39m\n\n");
   Message messageDecoder = Message();
 
   messageDecoder.setMessage(desetalage(emeteur.getMessageEtaler(), 1, had));
