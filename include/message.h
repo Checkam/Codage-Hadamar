@@ -10,9 +10,11 @@ class Message {
     int8_t * message;
 
   public:
+    Message();
     Message(const char * msgCar);
     int8_t * coder( Hadamar &had,int8_t indice);
     void afficher();
+    void setMessage(int8_t message[TAILLE_MESSAGE]);
 };
 
 

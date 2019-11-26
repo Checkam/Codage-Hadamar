@@ -2,12 +2,6 @@
 #include "message.h"
 #include "emeteur.h"
 
-void afficherTab(int8_t * tab, int C, char separateur){
-    for (int j = 0; j < C; j++) {
-      printf(" %d %c", tab[j], separateur);
-    }
-}
-
 int8_t * desetalage(int8_t messageCoder[TAILLE_MESSAGE * N],int8_t indice, Hadamar &had){
   int8_t * messageDecoder = new int8_t[TAILLE_MESSAGE];
   int8_t somme = 0;
@@ -54,11 +48,17 @@ int main(){
   int8_t * messageCoder2 = message2.coder(had,3);
   int8_t * messageCoder3 = message3.coder(had,5);
 
-  printf("\n\nCodage du message :");  message1.afficher();  afficher1(messageCoder1, "\n\nMessage Coder :");
+  printf("\n\nCodage du message :");
+  message1.afficher();
+  afficher1(messageCoder1, "\n\nMessage Coder :");
 
-  printf("\n\nCodage du message :");  message2.afficher();  afficher1(messageCoder2, "\n\nMessage Coder :");
+  printf("\n\nCodage du message :");
+  message2.afficher();
+  afficher1(messageCoder2, "\n\nMessage Coder :");
 
-  printf("\n\nCodage du message :");  message3.afficher();  afficher1(messageCoder3, "\n\nMessage Coder :");
+  printf("\n\nCodage du message :");
+  message3.afficher();
+  afficher1(messageCoder3, "\n\nMessage Coder :");
 
   emeteur.etalage(messageCoder1);
   emeteur.etalage(messageCoder2);
@@ -67,9 +67,14 @@ int main(){
   emeteur.afficher();
 
   printf("Decodage : \n\n");
-  int8_t * messageDecoder = desetalage(emeteur.getMessageEtaler(), 1, had); afficherTab(messageDecoder, TAILLE_MESSAGE,' '); printf("\n");
-  messageDecoder = desetalage(emeteur.getMessageEtaler(), 3, had); afficherTab(messageDecoder, TAILLE_MESSAGE,' '); printf("\n");
-  messageDecoder = desetalage(emeteur.getMessageEtaler(), 5, had); afficherTab(messageDecoder, TAILLE_MESSAGE,' '); printf("\n");
+  Message messageDecoder = Message();
+
+  messageDecoder.setMessage(desetalage(emeteur.getMessageEtaler(), 1, had));
+  messageDecoder.afficher();
+  messageDecoder.setMessage(desetalage(emeteur.getMessageEtaler(), 3, had));
+  messageDecoder.afficher();
+  messageDecoder.setMessage(desetalage(emeteur.getMessageEtaler(), 5, had));
+  messageDecoder.afficher();
 
   return EXIT_SUCCESS;
 }
