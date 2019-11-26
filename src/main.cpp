@@ -1,6 +1,7 @@
 #include <iostream>
 #include "message.h"
 #include "emeteur.h"
+#include "commun.h"
 
 int8_t * desetalage(int8_t messageCoder[TAILLE_MESSAGE * N],int8_t indice, Hadamar &had){
   int8_t * messageDecoder = new int8_t[TAILLE_MESSAGE];
@@ -20,22 +21,8 @@ int8_t * desetalage(int8_t messageCoder[TAILLE_MESSAGE * N],int8_t indice, Hadam
   return messageDecoder;
 }
 
-
-void afficher1(int8_t * tab, const char * msg){
-  printf("%s", msg);
-  for (int i = 0; i < TAILLE_MESSAGE; i++) {
-    for (int j = 0; j < N; j++) {
-      printf(" %2d", tab[j + i * N]);
-    }
-    printf("    ");
-  }
-  printf("\n\n");
-}
-
-
-
 int main(){
-
+  printf("\n\n"COLOR"Matrice d'Hadamar :"DEFAULT_COLOR"\n\n");
   Hadamar had = Hadamar(N);
   had.afficherMatrice();
   Emeteur emeteur = Emeteur();
@@ -48,25 +35,13 @@ int main(){
   int8_t * messageCoder2 = message2.coder(had,3);
   int8_t * messageCoder3 = message3.coder(had,5);
 
-  printf("\n\n\033[32mCodage du message :\033[39m");
-  message1.afficher();
-  afficher1(messageCoder1, "\n\n\033[32mMessage Coder :\033[39m");
-
-  printf("\n\n\033[32mCodage du message :\033[39m");
-  message2.afficher();
-  afficher1(messageCoder2, "\n\n\033[32mMessage Coder :\033[39m");
-
-  printf("\n\n\033[32mCodage du message :\033[39m");
-  message3.afficher();
-  afficher1(messageCoder3, "\n\n\033[32mMessage Coder :\033[39m");
-
   emeteur.etalage(messageCoder1);
   emeteur.etalage(messageCoder2);
   emeteur.etalage(messageCoder3);
 
   emeteur.afficher();
 
-  printf("\033[32mDecodage : \033[39m\n\n");
+  printf("\n\n"COLOR"Decodage :"DEFAULT_COLOR"\n\n");
   Message messageDecoder = Message();
 
   messageDecoder.setMessage(desetalage(emeteur.getMessageEtaler(), 1, had));

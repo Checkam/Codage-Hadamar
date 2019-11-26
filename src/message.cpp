@@ -1,4 +1,5 @@
 #include "message.h"
+#include "commun.h"
 #include <iostream>
 #include <inttypes.h>
 
@@ -23,7 +24,8 @@ void Message::afficher(){
 }
 
 int8_t * Message::coder( Hadamar &had, int8_t indice){
-
+  printf("\n\n"COLOR"Codage du message :"DEFAULT_COLOR);
+  this->afficher();
   int8_t* messageCoder = new int8_t[TAILLE_MESSAGE * N];
   int8_t* ligneHadamar = had.ligneHadamar(indice);
 
@@ -32,6 +34,16 @@ int8_t * Message::coder( Hadamar &had, int8_t indice){
         messageCoder[ j + i * N] = (message[i] == 1) ?  ligneHadamar[j] : -ligneHadamar[j];
     }
   }
+
+  printf("\n\n"COLOR"Message Coder :"DEFAULT_COLOR);
+  for (int i = 0; i < TAILLE_MESSAGE; i++) {
+    for (int j = 0; j < N; j++) {
+      printf(" %2d", messageCoder[j + i * N]);
+    }
+    printf("    ");
+  }
+  printf("\n\n");
+
 
   return messageCoder;
 }

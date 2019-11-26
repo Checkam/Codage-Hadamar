@@ -1,4 +1,5 @@
 #include "emeteur.h"
+#include "commun.h"
 #include <iostream>
 
 
@@ -21,7 +22,7 @@ void Emeteur::etalage(int8_t * messageCoder){
 
 
 void Emeteur::afficher(){
-  printf("\n\nMessage Etaler : ");
+  printf("\n\n"COLOR"Message Etaler :"DEFAULT_COLOR);
   for(int i = 0 ;  i < TAILLE_MESSAGE; i++ ){
     for (int j = 0; j < N; j++)
       printf("%2d ", messageEtaler[j + i * N]);
