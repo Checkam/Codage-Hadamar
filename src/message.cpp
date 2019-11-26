@@ -18,7 +18,6 @@ int8_t * Message::coder( Hadamar &had, int8_t indice){
 
   int8_t* messageCoder = new int8_t[TAILLE_MESSAGE * N];
   int8_t* ligneHadamar = had.ligneHadamar(indice);
-  had.afficherMatrice();
   for (size_t i = 0; i < had.getnbUtilisateursMax(); i++) {
     printf("%3" PRId8"", *(ligneHadamar + i));
   }
