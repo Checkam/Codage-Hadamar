@@ -22,7 +22,7 @@ INC_DIR=include
 # Toutes les sources du projet
 SRC := $(wildcard $(SRC_DIR)/*.cpp)
 INC := $(wildcard $(SRC_DIR)/*.h)
-OBJ := $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJ := $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 #----------------------------------------------------------------------------------
 # Messages
