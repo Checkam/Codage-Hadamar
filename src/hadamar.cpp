@@ -11,7 +11,7 @@ Hadamar::Hadamar( uint8_t nbUtilisateurs) {
 
     if ( nbUtilisateurs <= 0 || nbUtilisateurs > TAILLE_MAX ) {
 
-        printf("nbUtilisateurs inccorect, impossible d'initialiser la matrice (max : 64)\n");
+        printf("nbUtilisateurs inccorect, impossible d'initialiser la matrice (max : %d)\n", TAILLE_MAX);
         tab = NULL;
         return;
     }
