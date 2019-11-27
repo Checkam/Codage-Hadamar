@@ -76,8 +76,8 @@ $(OBJ) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(INC_DIR)/%.h
 clean:
 	$(MSG_RM_O)rm -f $(OBJ_DIR)/*.o
 	$(MSG_RM_B)rm -f $(BIN_DIR)/*
-	$(MSG_RM_TEST_O_DEB)$(foreach i,$(TEST_DIRS),$(MAKE) -s -C $(i) clean;)
-	$(MSG_RM_TEST_O_FIN)
+	#$(MSG_RM_TEST_O_DEB)$(foreach i,$(TEST_DIRS),$(MAKE) -s -C $(i) clean;)
+	#$(MSG_RM_TEST_O_FIN)
 
 mrproper: clean
 	$(MSG_RM_P)rm -i $(BIN_DIR)/$(PROG)
